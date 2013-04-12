@@ -4,7 +4,7 @@ Donate link: http://m7-pro.ru/
 Tags: top, back to top, return to top
 Requires at least: 3.5.1
 Tested up to: 3.5.1
-Stable tag: 0.1
+Stable tag: 0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -32,14 +32,9 @@ Note: Plugin was developed on wordpress 3.5.1 (the latest at the moment) and I h
 
 == Frequently Asked Questions ==
 
-= Is there a cnown problems? =
-
-Yes. The problem is when changing the type and position it might not show actual fields that should be edit.
-So for now i suggest after changing button type click save and than edit othere settings.
-
 = What will be done in future? =
 
-I'll fix the problem i wrote before. And after that i'll make plugin support languages ( .MO and .PO file support).
+Soon i'll make plugin support languages ( .MO and .PO file support).
 
 == Screenshots ==
 
@@ -50,10 +45,16 @@ I'll fix the problem i wrote before. And after that i'll make plugin support lan
 
 == Changelog ==
 
+= 0.2 =
+* Fixed custom js.
+
 = 0.1 =
 * Initial version.
 
 == Upgrade Notice ==
+
+= 0.2 =
+* Fixed custom js. Now everithing is working fine. update)
 
 = 0.1 =
 * Initial version.
