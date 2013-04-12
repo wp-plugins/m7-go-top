@@ -1,0 +1,27 @@
+.clear {
+    clear: both;
+}
+#m7_go_top {
+    position: fixed;
+}
+#m7_go_top a {
+    display: block;
+    font-size: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+}
+#m7_go_top a span {
+    line-height: inherit;
+    margin:0 10px;
+}
+#m7_go_top[data-type="vk"] a {
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+    -webkit-transition: opacity 200ms linear;
+    -moz-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+}
