@@ -35,11 +35,11 @@ function m7_view(){
             <h2>Donate</h2>
             <p>As a young, college student, it takes a great deal of my time and resources to continue to develop and support these great, FREE WordPress Plugin.<br /><b>Please help me out by Donating today.</b>
 <br /><br /><i>After clicking the button below you will be re-directed to PayPal where you can specify how much to donate and complete the secure transaction.</i></p>
-            <p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_black" style="text-align: center;">
-<input type="hidden" name="cmd" value="_s-xclick" />
-<input type="hidden" name="hosted_button_id" value="PXYMEAEA8TZD8" />
-<input type="image" src="https://www.paypalobjects.com/en_US/RU/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
-<img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" width="1" height="1" />
+            <p><form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="J85VH2E779DXA">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/ru_RU/i/scr/pixel.gif" width="1" height="1">
 </form></p>
 
         <div id="credits">
@@ -47,7 +47,7 @@ function m7_view(){
         </div>
         </div>
         
-        <form action="options.php" method="post" style="width: 50%;overflow:auto;">
+        <form class="m7_go_top" action="options.php" method="post" style="width: 50%;overflow:auto;">
         <?php settings_fields('m7_plugin_options'); ?>
         <?php do_settings_sections('m7-go-top.php'); ?>
         <?php submit_button(); ?>

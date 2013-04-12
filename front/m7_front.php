@@ -10,7 +10,7 @@ function m7_enqueue_scripts() {
     if ( !is_admin() ) {
         
         //wp_deregister_script('jquery');
-        //wp_register_script('jquery', M7_GO_TOP_FRONT_URL . 'js/jquery-min.js', false, '1.9.1'); 
+        //wp_register_script('jquery', M7_GO_TOP_ADMIN_URL . 'js/jquery-min.js', false, '1.9.1'); 
         // if there's some trubles/problems with wordpress jquery library - uncoment lines below.
         wp_enqueue_script('jquery');
 
