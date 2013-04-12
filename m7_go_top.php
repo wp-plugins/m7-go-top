@@ -3,7 +3,7 @@
 Plugin Name: M7 Go Top
 Plugin URI: http://m7-pro.ru
 Description: Plugin for "Top" button
-Version: 0.1
+Version: 0.2
 Author: Mihails Semjonovs
 Author URI: http://m7-pro.ru
 License: GPLv2 or later
@@ -11,7 +11,7 @@ License: GPLv2 or later
 
 /* Заполнение стандартных значений */
 global $m7_ver;
-$m7_ver = '0.1';
+$m7_ver = '0.2';
 if ( function_exists( 'add_action' ) ) {
     
 	if ( ! defined( 'WP_CONTENT_URL' ) )
