@@ -2,36 +2,35 @@
 define( 'M7_GO_TOP_FRONT_PATH', plugin_dir_path( __FILE__ ) );
 define( 'M7_GO_TOP_FRONT_URL', plugin_dir_url( __FILE__ ) );
 
-//Подключаем пользовательские скрипты
+/** Adding front scripts */
 add_action('wp_enqueue_scripts', 'm7_enqueue_scripts');
 
 function m7_enqueue_scripts() {
-    global $m7_ver;
-    if ( !is_admin() ) {
-        
-        //wp_deregister_script('jquery');
-        //wp_register_script('jquery', M7_GO_TOP_ADMIN_URL . 'js/jquery-min.js', false, '1.9.1'); 
-        // if there's some trubles/problems with wordpress jquery library - uncoment lines below.
+    if ( !is_admin() && get_option('m7_go_top_fields') ) {
+        $options = get_option('m7_go_top_fields');
+        $m7_text = $options['text'];
+        if(!$m7_text) $m7_text = __( 'Top', 'm7-go-top' );
+        wp_enqueue_style( 'm7_go_top_style', M7_GO_TOP_FRONT_URL . 'css/m7_go_top_style.css', false, get_option('m7_go_top_version') );
         wp_enqueue_script('jquery');
-
-        wp_enqueue_style( 'm7_go_top_style', M7_GO_TOP_FRONT_URL . 'css/m7_go_top_style.css', false, $m7_ver );
-        
-        wp_enqueue_script( 'm7_go_top_script', M7_GO_TOP_FRONT_URL . 'js/m7_go_top_script.js', array('jquery'), $m7_ver );
-        
+        wp_enqueue_script( 'm7_go_top_script', M7_GO_TOP_FRONT_URL . 'js/m7_go_top_script.js', array('jquery'), get_option('m7_go_top_version') );
+        wp_localize_script( 'm7_go_top_script', 'm7_go_top', array( 'm7_text' => $m7_text ) );
     }
 }
 
+/** Displaying script and styles based on options we selected */
 add_action('wp_head', 'm7_echo_go_top_script');
 function m7_echo_go_top_script() {
-    $options = get_option('m7_fields');
+    if( ! get_option('m7_go_top_fields') )
+        return false;
+    $options = get_option('m7_go_top_fields');
     $m7_type = $options['type'];
     if(!$m7_type) $m7_type = 'button';
     $m7_text = $options['text'];
-    if(!$m7_text) $m7_text = 'наверх';
+    if(!$m7_text) $m7_text = __( 'Top', 'm7-go-top' );
     $m7_position = $options['position'];
     if(!$m7_position) $m7_position = 'left';
     $m7_width = $options['width'];
-    if(!$m7_width) $m7_width = '300';
+    if(!$m7_width) $m7_width = '100';
     $m7_height = $options['height'];
     if(!$m7_height) $m7_height = '50';
     $m7_ztop = $options['ztop'];
@@ -42,7 +41,6 @@ function m7_echo_go_top_script() {
     if(!$m7_zleft) $m7_zleft = '50';
     $m7_zright = $options['zright'];
     if(!$m7_zright) $m7_zright = '50';
-    
     $m7_color = $options['color'];
     if(!$m7_color) $m7_color = '#45688e';
     $m7_hover_color = $options['hover_color'];
@@ -51,15 +49,7 @@ function m7_echo_go_top_script() {
     if(!$m7_bg_color) $m7_bg_color = 'transparent';
     $m7_bg_hover_color = $options['bg_hover_color'];
     if(!$m7_bg_hover_color) $m7_bg_hover_color = '#E1E7ED';
-    $script = '';
-    $script .= 'var m7_go_top = {';
-    $script .= '"m7_type": "'.$m7_type.'", ';
-    $script .= '"m7_text": "'.$m7_text.'", ';
-    $script .= '"m7_position": "'.$m7_position.'", ';
-    $script .= '"m7_width": '.$m7_width.', ';
-    $script .= '"m7_height": '.$m7_height.' ';
-    $script .= '}';
-    echo '<script type="text/javascript">'.$script.'</script>';
+    
     $style = '';
     $style .= '#m7_go_top {';
     if($m7_type == 'vk'){
@@ -79,15 +69,24 @@ function m7_echo_go_top_script() {
             $style .= $m7_position.':'.$m7_zright.'px;';
         }
     }
-    $style .= '}';
+    $style .= '} ';
     $style .= '#m7_go_top a {';
     $style .= 'color:'.$m7_color.';';
     $style .= 'background:'.$m7_bg_color.';';
     if($m7_type == 'vk'){
         $style .= 'height: 100%;';
-        $style .= 'line-height: 20px;';
+        $style .= 'line-height: 1.5;';
         $style .= 'width:'.$m7_width.'px;';
         $style .= 'padding-top: '.$m7_ztop.'px;';
+        $style .= 'opacity: 0.5;
+            filter: alpha(opacity=50);
+            -webkit-transition: background-color 200ms linear;
+            -moz-transition: background-color 200ms linear;
+            transition: background-color 200ms linear;
+            -webkit-transition: opacity 200ms linear;
+            -moz-transition: opacity 200ms linear;
+            transition: opacity 200ms linear;
+        ';
         if($m7_position == 'left'){
             $style .= 'margin-right:'.$m7_zright.'px;';
         } else {
@@ -97,12 +96,22 @@ function m7_echo_go_top_script() {
         $style .= 'height:'.$m7_height.'px;';
         $style .= 'line-height:'.$m7_height.'px;';
     }
-    $style .= '}';
-    $style .= '#m7_go_top a:hover,#m7_go_top:hover a {';
+    $style .= '} ';
+    $style .= '#m7_go_top a:hover, #m7_go_top:hover a {';
     $style .= 'opacity: 1;';
     $style .= 'filter: alpha(opacity=100);';
     $style .= 'color:'.$m7_hover_color.';';
     $style .= 'background:'.$m7_bg_hover_color.';';
+    $style .= '}';
+    
+    $style .= '#m7_go_top a span {';
+    if($m7_type == 'vk'){
+        $style .= 'font-size: 12px;';
+        $style .= 'line-height: 20px;';
+    } else {
+        $style .= 'font-size: 12px;';
+        $style .= 'line-height:'.$m7_height.'px;';
+    }
     $style .= '}';
     echo '<style>'.$style.'</style>';
 }
