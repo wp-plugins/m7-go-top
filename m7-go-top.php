@@ -255,6 +255,7 @@ class M7_Go_Top {
             if( (float) $old_version < (float) '1.0' && get_option( 'm7_go_top_fields' ) ) {
                 $old_options = get_option( 'm7_go_top_fields' );
                 if( $old_options ):
+                    $new_options['disabled']                    =   0;
                     $new_options['settings']['type']            =   $old_options['type'];
                     $new_options['settings']['text']            =   $old_options['text'];
                     $new_options['settings']['aling_h']         =   $old_options['position'];
