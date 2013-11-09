@@ -1,0 +1,139 @@
+.clear:before, .clear:after {
+	content: "\0020";
+	display: block;
+	height: 0;
+	overflow: hidden;
+}
+.clear:after {
+	clear: both;
+}
+#icon-m7-go-top {
+    background: url('../images/top.png') center center no-repeat;
+}
+#m7-go-top {
+    margin-top: 40px;
+}
+#m7-go-top .wp-picker-clear,
+#m7-go-top  div.wp-picker-holder {
+    z-index: 999 !important;
+    position: absolute !important;
+}
+.left-side {
+	float: left;
+}
+.tabs-select {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.tabs-select li {
+	display: block;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 8px;
+	overflow: hidden;
+	cursor: pointer;
+    min-width: 80px;
+}
+.tabs-select li:last-child {
+	margin-bottom: 0;
+}
+.tabs-select li img {
+	opacity: 0.5;
+	margin: 0 auto 8px auto;
+	display: block;
+}
+.tabs-select li span {
+	display: block;
+	color: #464646;
+	font-weight: bold;
+}
+.tabs-select li:hover img {
+	opacity: 0.8;
+}
+.tabs-select li.selected {
+	border-color: #000;
+}
+.tabs-select li.selected img {
+	opacity: 1;
+}
+
+.right-side {
+	margin-left: 150px;
+	position: relative;
+}
+p.submit {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	padding-right: 20px;
+	position: absolute;
+	top: -24px;
+	right: 0px;
+}
+p.submit-2 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	padding-right: 20px;
+	position: absolute;
+	bottom: -24px;
+	right: 0px;
+}
+
+#m7-go-top-tabs {
+	margin-bottom: 30px;
+}
+
+.fieldset {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+    overflow: auto;
+}
+.fieldset:after, .fieldset li:after {
+	display: table;
+	width: 100%;
+	height: 0px;
+	clear: both;
+}
+.fieldset li {
+	position: relative;
+	margin-bottom: 10px;
+    width: 50%;
+    float: left;
+}
+@media screen and (max-width: 900px) {
+    .fieldset li {
+        width: 100%;
+        float: none;
+    }
+}
+.fieldset li > .description {
+	clear: both;
+	font-size: 11px;
+    margin-right: 20px;
+}
+.fieldset li > .description p {
+	margin: 0;
+	padding: 0;
+}
+.fieldset li > .label {
+	float: left;
+	width: 40%;
+	padding-right: 20px;
+	font-weight: bold;
+	line-height: 25px;
+}
+.fieldset li > .field {
+	line-height: 25px;
+}
+.fieldset select {
+    min-width: 135px;
+}
+.fieldset textarea {
+    width: 98%;
+    min-height: 140px;
+    max-width: 100%;
+}
