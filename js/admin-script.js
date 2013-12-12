@@ -87,7 +87,6 @@ jQuery(function($){
             var checkbox = ( ! $(this).data('checkbox') || $(this).data('checkbox') == '' ) ? $(this) : doc.find( $(this).data('checkbox') );
             var checked = ( ! $(this).data('checked') || $(this).data('checked') == '' ) ? 1 : $(this).data('checked');
             var value = ( ! $(this).data('unchecked') || $(this).data('unchecked') == '' ) ? 0 : $(this).data('unchecked');
-            console.log(checkbox);
             if( $(this).is(':checked') )
                 value = checked;
             checkbox.attr( 'value', value ).val( value ).trigger('change');

@@ -299,7 +299,7 @@ class M7_Go_Top_Fields_Class {
                 esc_html( $args['label'] )
             ),
             $field,
-            esc_attr( $args['descr'] )
+            ( ! isset( $args['descr'] ) || empty( $args['descr'] ) ) ? '' : esc_attr( $args['descr'] )
         );
     }
     

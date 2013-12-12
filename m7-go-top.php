@@ -148,7 +148,7 @@ class M7_Go_Top {
     **/
     public function action_admin_enqueue_scripts() {
         // Подключаем стили и скрипты только к нашей странице
-        if( ! isset( $_GET ) || $_GET['page'] != self::$textdomain )
+        if( ! isset( $_GET['page'] ) || $_GET['page'] != self::$textdomain )
             return;
         wp_enqueue_style( 'wp-color-picker' ); // Colorpicker
         wp_enqueue_style(
@@ -399,6 +399,6 @@ if( class_exists( 'M7_Go_Top' ) ):
     **/
     //register_activation_hook( __FILE__,     array( $M7_Go_Top,  'plugin_activation' ) );
     //register_deactivation_hook( __FILE__,   array( $M7_Go_Top,  'plugin_deactivation' ) );
-    register_uninstall_hook( __FILE__,      array( $M7_Go_Top,  'plugin_uninstall' ) );
+    register_uninstall_hook( __FILE__,      array( 'M7_Go_Top',  'plugin_uninstall' ) );
     
 endif; // ( class_exists( 'M7_Go_Top' ) )
