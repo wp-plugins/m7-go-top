@@ -279,6 +279,9 @@ class M7_Go_Top {
                 endif;
                 delete_option( 'm7_go_top_fields' );
                 $new_version = '1.0';
+            } elseif( (float) $old_version < (float) '1.1' ) {
+                $new_options = get_option( self::$option_name );
+                $new_version = '1.1';
             }
         }
         update_option( self::$option_name, $new_options );
