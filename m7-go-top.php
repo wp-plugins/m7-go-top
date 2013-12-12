@@ -3,7 +3,7 @@
 Plugin Name: M7 Go Top
 Plugin URI: http://m7-pro.ru/
 Description: Creates "To Top" link on your website, so that visitors could get back to the top of page. Fully customizable.
-Version: 1.0
+Version: 1.1
 Author: [M7] Михаил Семёнов ( Mihail Semjonov )
 Author URI: http://m7-pro.ru/
 License: GPLv2 or later

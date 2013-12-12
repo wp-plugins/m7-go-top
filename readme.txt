@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: top, back to top, return to top, go top, to top
 Requires at least: 3.5.1
 Tested up to: 3.7.1
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -76,9 +76,13 @@ You can write me on mihailsemjonov@mail.ru or in "Support"
 1. Settings page
 2. Settings page continue
 3. Settings page end
-4. 3 different button types that can be chosed ( used black background and white text color and image uploaded to the library )
+4. 3 different button types that can be chosed ( left: VK style type, middle: image type, right: button type )
 
 == Changelog ==
+
+= 1.1 =
+* bugfix
+* new screenshots
 
 = 1.0 =
 * Compleately changed the way plugin is writen ( now it's in the class )
@@ -107,6 +111,12 @@ You can write me on mihailsemjonov@mail.ru or in "Support"
 * Initial version.
 
 == Upgrade Notice ==
+
+= 1.1 =
+* removed js debug in admin
+* fixed small bugs when debug mode active
+* new screenshots
+
 = 1.0 =
 * Compleately changed the way plugin is writen ( now it's in the class )
 * Added image support, speed and start from settings fields, text-shadow, box-shadow, border, border-radius, opacity
